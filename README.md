@@ -3,6 +3,7 @@
 ```javascript
 
 Using the MySQL Go Driver, and testing GC!
+
 mem.Alloc:  73016
 mem.TotalAlloc:  73016
 mem.HeapAlloc:  73016
