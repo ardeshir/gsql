@@ -4,6 +4,10 @@
 
 Using the MySQL Go Driver, and testing GC!
 
+We're using gc on a amd64 machine
+with Go version go1.8.3
+Number of Goroutines:  2
+
 mem.Alloc:  73016
 mem.TotalAlloc:  73016
 mem.HeapAlloc:  73016
