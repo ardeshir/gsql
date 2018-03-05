@@ -4,17 +4,10 @@ import (
     "fmt"
     "runtime"
     "time"
-    "database/sql"
-    // pg is the library that allows us to connect
-    // to postgres with database/sql
-    _ "github.com/lib/pq"
+    _ "github.com/go-sql-driver/mysql"
 )
 
-
-var ( 
- debug bool = false
- version string = "0.0.0"
- )
+var debug bool = true 
 
 func printEnv() {
     
@@ -50,6 +43,7 @@ func checkGC() {
         }
      }
 
+
      printStats(mem)
 
       for i := 0; i< 10; i++ {
@@ -66,25 +60,15 @@ func checkGC() {
 
 func main() {
 
-    
-    
-//++++++++++  footer 
-  if debugTrue() {
-
+    if debug == true {
+        
+       fmt.Println("Using the MySQL Go Driver, and testing GC!")
+       fmt.Println(" ")
+       
        printEnv()   
        
        checkGC()
-      
-    u.V(version)
-  }
-
-}
-
-// Function to check env variable DEFAULT_DEBUG bool is set
-func debugTrue() bool {
+    }
     
-     if os.Getenv("DEFAULT_DEBUG") != "" {
-        return true
-     }  
-     return false 
 }
+
