@@ -5,6 +5,9 @@ import (
     "runtime"
     "time"
     "database/sql"
+    "os"
+
+   u "github.com/ardeshir/version"
     // pg is the library that allows us to connect
     // to postgres with database/sql
     _ "github.com/lib/pq"

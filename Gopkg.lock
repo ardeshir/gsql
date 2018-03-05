@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  branch = "master"
+  name = "github.com/ardeshir/version"
+  packages = ["."]
+  revision = "841ccfe5b5c06bd3b546589f9b998dd4f10e5155"
+
+[[projects]]
   name = "github.com/go-sql-driver/mysql"
   packages = ["."]
   revision = "a0583e0143b1624142adab07e0e97fe106d99561"
@@ -19,6 +25,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7ccce880309736ddcfd1ef3a51aac31c418f209730579eca2380e9adf3d3f6e9"
+  inputs-digest = "0dcebc36bfb3b55f8048c3fa2091df3bd9724eaa65930a415bea2a5ac4cc335f"
   solver-name = "gps-cdcl"
   solver-version = 1
