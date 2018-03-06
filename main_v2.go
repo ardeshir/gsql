@@ -85,47 +85,15 @@ func main() {
 
   defer db.Close()
 
-  // Query the database
-  rows, err := db.Query(`
-       SELECT 
-	     sepal_length as sLength,
-	     sepal_width  as sWidth,
-	     petal_length as pLength,
-	     petal_width  as pWidth,
-             species   
-       FROM iris
-       WHERE species = $1`, "Iris-setosa")
-   u.ErrNil(err, "Unable to select from iris")
-   defer rows.Close()
-
-   // Iterate over the rows, sending the sults to 
-   // standard out
-   for rows.Next() {
-      var (
-             sLength float64
-             sWidth  float64
-             pLength float64
-             pWidth  float64
-             species string
-        )
-        if err := rows.Scan(&sLength, &sWidth, &pLength, &pWidth, &species) ; err != nil {
-		log.Fatal(err)
-        }
-        fmt.Printf("%.2f, %.2f, %.2f, %.2f, %s\n", sLength, sWidth, pLength, pWidth, species)
-    }
-     // check for errors after we are done iterating over rows.
-     if err := rows.Err(); err != nil {
-       log.Fatal(err)
-     }
-
 // sql.Open() does not establish any connection to the database
 // It just prepares the database connection value
 // for later use. To make sure the database is available and 
 // accessible, we will use db.Ping()
-//  if err := db.Ping(); err != nil {
-//	panic(err)
-//  }
-//  fmt.Println("Successfully Connected to ", pgURL)
+  if err := db.Ping(); err != nil {
+	panic(err)
+  }
+
+  fmt.Println("Successfully Connected to ", pgURL)
 
 //++++++++++  footer 
   if debugTrue() {
