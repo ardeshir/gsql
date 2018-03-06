@@ -94,7 +94,7 @@ func main() {
 	     petal_width  as pWidth,
              species   
        FROM iris
-       WHERE species = $1`, "setosa")
+       WHERE species = $1`, "Iris-setosa")
    u.ErrNil(err, "Unable to select from iris")
    defer rows.Close()
 
@@ -117,16 +117,6 @@ func main() {
      if err := rows.Err(); err != nil {
        log.Fatal(err)
      }
-
-     // Update some values
-     res, err := db.Exec("UPDATE iris SET species = 'setosa' WHERE species = 'Iris-setosa'")
-     u.ErrNil(err, "Unable to update iris")
-
-     // See how many rows are affected
-     rowCount, err := res.RowsAffected()
-     u.ErrNil(err, "Error checking rows were affected")
-     // Output the number of rows affected
-     fmt.Printf("Affected rows:  %d\n", rowCount)
 
 // sql.Open() does not establish any connection to the database
 // It just prepares the database connection value
