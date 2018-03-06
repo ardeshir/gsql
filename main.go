@@ -93,7 +93,7 @@ func main() {
 	panic(err)
   }
 
-  fmt.Println("Succesfully Connect to ", pgURL)
+  fmt.Println("Successfully Connected to ", pgURL)
 
 //++++++++++  footer 
   if debugTrue() {
