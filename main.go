@@ -90,10 +90,10 @@ func main() {
 // for later use. To make sure the database is available and 
 // accessible, we will use db.Ping()
   if err := db.Ping(); err != nil {
-	log.Fatal(err)
- }
+	panic(err)
+  }
 
-
+  fmt.Println("Succesfully Connect to ", pgURL)
 
 //++++++++++  footer 
   if debugTrue() {
